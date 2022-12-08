@@ -11,13 +11,11 @@ def process(path_file, instance):
     nome_do_arquivo = path_file
     quantidade_de_linhas = len(news)
 
-    processed_data = (
-        {
-            "nome_do_arquivo": nome_do_arquivo,
-            "qtd_linhas": quantidade_de_linhas,
-            "linhas_do_arquivo": news
-        }
-    )
+    processed_data = {
+        "nome_do_arquivo": nome_do_arquivo,
+        "qtd_linhas": quantidade_de_linhas,
+        "linhas_do_arquivo": news,
+    }
 
     instance.enqueue(processed_data)
 
@@ -25,7 +23,15 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    if instance.__len__() == 0:
+        sys.stdout.write("Não há elementos\n")
+        return None
+
+    removed_processed_file = instance.dequeue()
+
+    path_file = removed_processed_file['nome_do_arquivo']
+
+    sys.stdout.write(f"Arquivo {path_file} removido com sucesso\n")
 
 
 def file_metadata(instance, position):
