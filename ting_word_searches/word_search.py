@@ -1,7 +1,3 @@
-# from ting_file_management.file_process import process
-# from ting_file_management.queue import Queue
-
-
 def exists_word(word, instance):
     result = []
     occurrencies_index = []
@@ -26,9 +22,3 @@ def exists_word(word, instance):
 
 def search_by_word(word, instance):
     """Aqui irá sua implementação"""
-
-
-# fila = Queue()
-# process("statics/arquivo_teste.txt", fila)
-# if __name__ == "__main__":
-#     exists_word("de", fila)
